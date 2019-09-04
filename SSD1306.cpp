@@ -92,8 +92,8 @@ void SSD1306::_sendData(const uint8_t *blk, uint32_t len, bool isData) {
 	        int error = _i2c->write(*p);
 	        //int error = 1;
 	        //wait(0.1);
-	        if (error != 1)
-	            pc.printf("I2C error: %d\r\n", error);
+	        // if (error != 1)
+	        //     pc.printf("I2C error: %d\r\n", error);
 	    }
 	    _i2c->stop();
 
@@ -107,8 +107,8 @@ void SSD1306::_sendData(const uint8_t *blk, uint32_t len, bool isData) {
 	        //int error = 1;
 	        //wait(0.1);
 	        _i2c->stop();
-	        if (error != 1)
-	            pc.printf("I2C error: %d\r\n", error);
+	        // if (error != 1)
+	        //     pc.printf("I2C error: %d\r\n", error);
 	    }
     }
 }

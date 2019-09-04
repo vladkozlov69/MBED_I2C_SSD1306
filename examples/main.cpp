@@ -3,11 +3,17 @@
 #include "SSD1306.h"
 #include "FreeSans9pt7b.h"
 
+#define UART1_TX PA_9
+#define UART1_RX PA_10
 
-Serial pc(USBTX, USBRX);
+#define SDA_PIN PB_9
+#define SCL_PIN PB_8
 
-I2C * i2c;
-DigitalOut led(LED_RED);
+
+Serial pc(UART1_TX, UART1_RX, 9600); 
+I2C i2c(SDA_PIN, SCL_PIN);
+
+DigitalOut led(PC_13);
 
 /**************************************************
  * graphics_simple_demo
@@ -222,8 +228,10 @@ int main()
     pc.baud(115200);
     pc.printf("SSD1306 I2C Demo\r\n");
     
-    SSD1306 display = SSD1306(i2c);
+    SSD1306 display = SSD1306(&i2c);
     display.begin(true);
+    display.setTextSize(1);
+    display.setTextColor(WHITE, BLACK);
     
     while (true) {
         led = !led; // toggle led

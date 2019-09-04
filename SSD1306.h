@@ -62,7 +62,7 @@
 class SSD1306 : public Adafruit_GFX 
 {
 	I2C * _i2c;
-  public:
+public:
 	SSD1306(I2C * i2c, int16_t w=SSD1306_LCDWIDTH, int16_t h=SSD1306_LCDHEIGHT);
 
 	void drawPixel(int16_t x, int16_t y, uint16_t color);
@@ -84,15 +84,15 @@ class SSD1306 : public Adafruit_GFX
 	void drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color);
 
 
-  protected:
-  int16_t
-     _width, _height; // Display w/h as modified by current rotation
+protected:
+  	int16_t 
+	  	_width, _height; // Display w/h as modified by current rotation
 
-   uint8_t
-     textsize,
-     rotation;
+   	uint8_t
+     	textsize,
+     	rotation;
 
-  private:
+private:
 	void _sendData(const uint8_t *blk, uint32_t len, bool isData);
 	void sendCommands(const uint8_t *blk, uint32_t len);
 	void sendData(const uint8_t *blk, uint32_t len);
