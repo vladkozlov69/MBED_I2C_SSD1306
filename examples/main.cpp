@@ -232,7 +232,13 @@ int main()
     display.begin(true);
     display.setTextSize(1);
     display.setTextColor(WHITE, BLACK);
-    
+    display.clearDisplay();
+    display.display();
+
+    display.setCursor(0, 0);
+    display.println("Hello, world!");
+    display.display();
+
     while (true) {
         led = !led; // toggle led
         wait(1);
